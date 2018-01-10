@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+  </script>
+</head>
+<body>
+<!-- payment -->
+<p>My Bookings</p>
+<div>
+    {% for i in bookings %}
+        <!-- <h3>{{id}}</h3> -->
+        <div id="{{id}}">
+            {{i}}
+        </div>
+    <br>
+    {% endfor %}
+</div>
+<!-- edit -->
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">Delete a booking</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <P>Put in the booking ID to delete a flight</P>
+                <div class="panel-body">
+                    <form action="/bookingupdate" method="POST">
+                        <label><b>Booking ID:</b></label>
+                        <input type="text" name="bookingid" placeholder="Your BookingID">
+                        <button type="submit" name="submit" value="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</body>
+</html>

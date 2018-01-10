@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+  </script>
+</head>
+<body>
+<!-- payment -->
+<p>card info</p>
+<div>
+    {% for i in tuple %}
+        <!-- <h3>{{id}}</h3> -->
+        <div id="{{id}}">
+            {{i}}
+        </div>
+    <br>
+    {% endfor %}
+</div>
+<!-- edit -->
+<div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">Edit/Delete a Card Information</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <P>Put in the Card Number of the card you want to change and put in the edited information</P>
+                <div class="panel-body">
+                    <form action="/userupdate" method="POST">
+                        <label><b>Card Number:</b></label>
+                        <input type="text" name="cardnum" placeholder="Your Card Number">
+                        <label><b>Address: </b></label>
+                        <input type="text" name="address" placeholder="Your New Address">
+                        <label><b>Zip Code: </b></label>
+                        <input type="text" name="zipcode" placeholder="Your New Zip Code">
+                        <label><b>Country: </b></label>
+                        <input type="text" name="country" placeholder="Your New Country">
+                        <label><b>State: </b></label>
+                        <input type="text" name="state" placeholder="Your New State">
+                        <label><b>City: </b></label>
+                        <input type="text" name="city" placeholder="Your New City">
+                        <br>
+                            <button type="submit" name="submit" value="submit">Edit</button>
+                            <button type="submit" name="submit" value="delete">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- add -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse2">Add a Card</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <P>Put in all the Card Number information</P>
+                <div class="panel-body">
+                    <form action="/userupdate" method="POST">
+                        <label><b>Card Number: </b></label>
+                        <input type="text" name="cardnum" placeholder="Your Card Number">
+                        <label><b>Expire Date: </b></label>
+                        <input type="text" name="expdate" id="datepicker">
+                        <label><b>Card Type: </b></label>
+                        <input type="text" name="cardtype" placeholder="Your Card Type Address">
+                        <label><b>Address: </b></label>
+                        <input type="text" name="address" placeholder="Your Address">
+                        <label><b>Zip Code: </b></label>
+                        <input type="text" name="zipcode" placeholder="Your Zip Code">
+                        <label><b>Country: </b></label>
+                        <input type="text" name="country" placeholder="Your Country">
+                        <label><b>State: </b></label>
+                        <input type="text" name="state" placeholder="Your State">
+                        <label><b>City: </b></label>
+                        <input type="text" name="city" placeholder="Your City">
+                        <br>
+                        <button type="submit" name="submit" value="add">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- addresses -->
+<p>addresses</p>
+<div>
+    {% for i in tuple2 %}
+        <!-- <h3>{{id}}</h3> -->
+        <div id="{{id}}">
+            {{i}}
+        </div>
+    <br>
+    {% endfor %}
+    <div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse3">Edit/Delete an Address Information</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <P>Put In the Old Address You Want to Change and Put In the New Information</P>
+                <div class="panel-body">
+                    <form action="/userupdate" method="POST">
+                        <p>Old Inormation</p>
+                        <label><b>Address: </b></label>
+                        <input type="text" name="oaddaddress" placeholder="Your Old Address">
+                        <label><b>Zip Code: </b></label>
+                        <input type="text" name="oaddzipcode" placeholder="Your Old Zip Code">
+                        <label><b>Country: </b></label>
+                        <input type="text" name="oaddcountry" placeholder="Your Old Country">
+                        <label><b>State: </b></label>
+                        <input type="text" name="oaddstate" placeholder="Your Old State">
+                        <label><b>City: </b></label>
+                        <input type="text" name="oaddcity" placeholder="Your Old City">
+                        <br>
+                        <p>Put in New Information if You Want to Edit</p>
+                        <label><b>Address: </b></label>
+                        <input type="text" name="addaddress" placeholder="Your New Address">
+                        <label><b>Zip Code: </b></label>
+                        <input type="text" name="addzipcode" placeholder="Your New Zip Code">
+                        <label><b>Country: </b></label>
+                        <input type="text" name="addcountry" placeholder="Your New Country">
+                        <label><b>State: </b></label>
+                        <input type="text" name="addstate" placeholder="Your New State">
+                        <label><b>City: </b></label>
+                        <input type="text" name="addcity" placeholder="Your New City">
+                        <br>
+                            <button type="submit" name="submit" value="addsubmit">Edit</button>
+                            <button type="submit" name="submit" value="adddelete">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- add -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse4">Add an Address</a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+                <P>Put in all the Card Information to Add an Address</P>
+                <div class="panel-body">
+                    <form action="/userupdate" method="POST">
+                        <label><b>Address: </b></label>
+                        <input type="text" name="addaddress" placeholder="Your Address">
+                        <label><b>Zip Code: </b></label>
+                        <input type="text" name="addzipcode" placeholder="Your Zip Code">
+                        <label><b>Country: </b></label>
+                        <input type="text" name="addcountry" placeholder="Your Country">
+                        <label><b>State: </b></label>
+                        <input type="text" name="addstate" placeholder="Your State">
+                        <label><b>City: </b></label>
+                        <input type="text" name="addcity" placeholder="Your City">
+                        <br>
+                        <button type="submit" name="submit" value="addadd">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
