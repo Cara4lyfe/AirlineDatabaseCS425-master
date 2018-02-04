@@ -15,7 +15,7 @@ def index():
 @app.route('/booking.html')
 def booking():
     try:
-        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='Mike8101'")
+        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='*my pswd*'")
 
         global currentLogin
         currentLoginDic = {'key': currentLogin}
@@ -49,7 +49,7 @@ def booking():
 @app.route('/bookingupdate', methods=['POST'])
 def bookingupdate():
     try:
-        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='Mike8101'")
+        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='*my pswd*'")
         cur = con.cursor()
         #store current login info
         global currentLogin
@@ -87,7 +87,7 @@ def bookingupdate():
 @app.route('/log', methods=['POST'])
 def log():
     try:
-        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='Mike8101'")
+        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='*my pswd*'")
         cur = con.cursor()
         #store current login info
         global currentLogin
@@ -117,7 +117,7 @@ def reg():
 @app.route('/login', methods=['POST'])
 def login():
     try:
-        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='Mike8101'")
+        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='*my pwd*'")
         cur = con.cursor()
         email = request.form['email']
         name = request.form['name']
@@ -138,7 +138,7 @@ def login():
 @app.route('/user.html')
 def user():
     try:
-        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='Mike8101'")
+        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='*my pswd*'")
 
 
         global currentLogin
@@ -169,7 +169,7 @@ def userupdate():
     try:
         global currentLogin
         currentLoginDic = {'key': currentLogin}
-        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='Mike8101'")
+        con = psycopg2.connect("host='localhost' dbname='Airline' user='postgres' password='*my pswd*'")
 
         cur2 = con.cursor()
         # update
